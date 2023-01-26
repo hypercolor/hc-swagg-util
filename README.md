@@ -4,11 +4,16 @@
   - [Introduction](#introduction)
   - [Installation](#installation)
   - [Prerequisites](#prerequisites)
-    - [Example File](swagger.js)
-      - Place in root directory of your project, and rename the title and description as necessary.
     - [Required Architecture](#compatible-api-routing-architecture-overview)
   - [Examples](#examples)
+    - [Example Files](#example-files-)
+      - [Example Root File](swagger.js)
+    - [Types and Interfaces](#types-and-interfaces-)
   - [License](LICENSE)
+  - [More Information](#more-information)
+    - [Toolchain](#toolchain)
+    - [Project Repository](#project-repository)
+    - [Organization Repository](#organization-repository)
 
 ## Introduction
 This is a simple add-on for swagger-UI-Express that allows for programmatic generation of API documentation.  
@@ -137,8 +142,8 @@ Routes File
 export class ApiRoutes {
   public static register(app: e.Application) {
     const v1ApiRoutes: Array<ExpressRouter> = V1ApiRoutes.buildAndMountRoutes(app, '/api/v1');
-  
-    HcSwaggUtil(
+
+    SwaggerGenerator(
       "test_user",
       "change_me",
       "Title Here",
@@ -149,7 +154,7 @@ export class ApiRoutes {
       v1ApiRoutes
     );
   }
-} 
+}
 
 ```
 Controller File
@@ -173,9 +178,10 @@ export abstract class Controller {
 ```
 
 ### Types and Interfaces:
-``` typescript
+```typescript
 export type IControllerType = new (req: Request, res: Response, next: NextFunction) => Controller;
-
+```
+```typescript
 export interface IControllerDocumentation {
   summary?: string
   description?: string
@@ -183,19 +189,36 @@ export interface IControllerDocumentation {
   query?: {[key: string]: any}
   response?: {[key: string]: any}
 }
-
+```
+```typescript
 export interface IRouterItem {
   path: string,
   verb: string,
   controller: IControllerType | undefined
 }
-
+```
+```typescript
 export interface IRouter {
   routes: Array<IRouterItem>
 }
-
+```
+```typescript
 export interface IMountedRoute {
   path: string,
   verb: string,
   controller: IControllerType | undefined
 }
+
+```
+
+## More Information
+#### Toolchain
+- Node.js
+- TypeScript
+- Express.js
+- Swagger.js
+- typedjson
+
+#### [Project Repository](https://github.com/hypercolor/swagger-generator)
+
+#### [Organization Repository](https://github.com/hypercolor/)

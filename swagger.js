@@ -1,6 +1,10 @@
 
 import {SwaggerGenerator} from "./index";
 
+/*
+  Copy and paste the below code into the root of your project, replacing the title and description as necessary:
+*/
+
 module.exports = {
   openapi: "3.0.2",
   info: {
