@@ -9,7 +9,7 @@
         "declaration": true,
         "sourceMap": true,
 
-        "outDir": "lib",
+        "outDir": "./",
         "composite": true,
         /* Strict Type-Checking Options */
         "strict": true,

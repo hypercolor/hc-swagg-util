@@ -1,6 +1,6 @@
 {
   "name": "@hypercolor/swagger-generator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This is used by the Hypercolor Digital team to automatically parse mounted routes into Swagger",
   "main": "index.js",
   "author": "Seth Uschuk",
