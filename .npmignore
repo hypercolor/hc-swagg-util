@@ -1,14 +1,9 @@
 .*
-*.log
 **/tsconfig.json
-tsconfig.*.json
-tslint.json
-**/webpack.config.js
 **/tsconfig.tsbuildinfo
 swagger.js
+src
 
-__tests__
-coverage
 node_modules
 *.ts
 docs
