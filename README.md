@@ -131,7 +131,7 @@ export class V1ApiRoutes {
 }
 ```
 Routes File
-- Import `hc-swag-util` inside of wherever your routes are mounted at, and call the utility. 
+- Import `@hypercolor/swagger-generator` inside of wherever your routes are mounted at, and call the utility. 
   - Be sure to give valid arguments for:
     - username
     - password
