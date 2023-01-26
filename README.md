@@ -139,11 +139,13 @@ Routes File
     - description
 
 ```typescript
+import {SwaggerGenerator} from '@hypercolor/swagger-generator';
+
 export class ApiRoutes {
   public static register(app: e.Application) {
     const v1ApiRoutes: Array<ExpressRouter> = V1ApiRoutes.buildAndMountRoutes(app, '/api/v1');
 
-    SwaggerGenerator(
+    new SwaggerGenerator(
       "test_user",
       "change_me",
       "Title Here",
@@ -161,6 +163,8 @@ Controller File
 - Use the SwaggerDoc function as an annotation to assign the various expected formats for the specific API. The HC Swagg Util will use those during the compilation process. 
 
 ```typescript
+import {SwaggerDoc} from '@hypercolor/swagger-generator';
+
 @SwaggerDoc({
   description: '', //description of API
   body: {}, //Expected request body format,
