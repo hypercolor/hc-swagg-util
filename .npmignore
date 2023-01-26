@@ -10,7 +10,6 @@ swagger.js
 __tests__
 coverage
 node_modules
-src
 *.ts
 docs
 
