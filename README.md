@@ -1,12 +1,14 @@
-# HC-Swagg-Utility
+# Hypercolor Swagger Generator
 
 ## Table of Contents
   - [Introduction](#introduction)
   - [Installation](#installation)
   - [Prerequisites](#prerequisites)
     - [Example File](swagger.js)
+      - Place in root directory of your project, and rename the title and description as necessary.
     - [Required Architecture](#compatible-api-routing-architecture-overview)
-  - [Example](#examples)
+  - [Examples](#examples)
+  - [License](LICENSE)
 
 ## Introduction
 This is a simple add-on for swagger-UI-Express that allows for programmatic generation of API documentation.  
@@ -46,7 +48,7 @@ module.exports = {
 }
 ```
 #### *Compatible API Routing Architecture Overview*
-In order for the programmatic parsing of API routes and their associated documentation, routes need to be mounted into a specific format. Please visit the [example](#examples) section for more information and code examples.
+- In order for the programmatic parsing of API routes and their associated documentation, routes need to be mounted into a specific format. Please visit the [example](#examples) section for more information and code examples.
 
 
 ## Examples
@@ -104,8 +106,6 @@ export class ExpressRoute {
   }
 }
 ```
-
-
 API Route Mounting File
 ```typescript
 export class V1ApiRoutes {
