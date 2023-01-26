@@ -1,8 +1,7 @@
 {
   "name": "@hypercolor/swagger-generator",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "This is used by the Hypercolor Digital team to automatically parse mounted routes into Swagger",
-  "main": "index.js",
   "author": "Seth Uschuk",
   "license": "MIT",
   "private": false,
@@ -17,6 +16,8 @@
     "tslint-loader": "^3.5.4",
     "typescript": "^4.9.4"
   },
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "dependencies": {
     "express": "^4.18.2",
     "pjson": "^1.0.9",
