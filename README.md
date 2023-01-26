@@ -46,17 +46,12 @@ module.exports = {
 }
 ```
 #### *Compatible API Routing Architecture Overview*
-In order for the programmatic parsing of API routes and their associated documentation, routes need to be mounted in this return format:
-
-- Where each item in the routes array is formatted as:
-
-
-Please visit the [example](#examples) section for more information and code examples.
+In order for the programmatic parsing of API routes and their associated documentation, routes need to be mounted into a specific format. Please visit the [example](#examples) section for more information and code examples.
 
 
 ## Examples
 ### Example Files:
-file: `express-router.ts`
+Router Construction
 ```typescript
 export class ExpressRouter {
   constructor(private readonly options?: IRouterOptions) {
@@ -89,7 +84,7 @@ export class ExpressRouter {
 }
 ```
 
-file: `express-route.ts`
+Route Construction
 ```typescript
 
 export class ExpressRoute {
@@ -111,9 +106,8 @@ export class ExpressRoute {
 ```
 
 
-file: `v1-api-routes.ts`
+API Route Mounting File
 ```typescript
-
 export class V1ApiRoutes {
   public static buildAndMountRoutes(expressApp: e.Application, mountPoint: string) {
     const routers = [
@@ -122,17 +116,17 @@ export class V1ApiRoutes {
       }, router => {
         router.route('hello').get(GetHelloController);
         router.route('welcome').get(GetWelcomeController);
-      });
+      })
     ];
     
-    routers.forEach(router => expressApp.use(mountPoint, router.router);
+    routers.forEach(router => expressApp.use(mountPoint, router.router));
     
     return routers;
   }
 }
 ```
-file `routes.ts`:
-- Import `hc-swag-util` inside of `routes.ts`, or wherever your routes are mounted at, and call the utility. 
+Routes File
+- Import `hc-swag-util` inside of wherever your routes are mounted at, and call the utility. 
   - Be sure to give valid arguments for:
     - username
     - password
@@ -142,8 +136,6 @@ file `routes.ts`:
 ```typescript
 export class ApiRoutes {
   public static register(app: e.Application) {
-    app.use(...);
-    
     const v1ApiRoutes: Array<ExpressRouter> = V1ApiRoutes.buildAndMountRoutes(app, '/api/v1');
   
     HcSwaggUtil(
@@ -160,16 +152,16 @@ export class ApiRoutes {
 } 
 
 ```
-file `get.ts`
+Controller File
 - Use the SwaggerDoc function as an annotation to assign the various expected formats for the specific API. The HC Swagg Util will use those during the compilation process. 
 
 ```typescript
 @SwaggerDoc({
   description: '', //description of API
-  body?: {}, //Expected request body format,
-  query?: {}, //Expected request query format,
-  params?: {}, //Expected request params format
-  response?: {} //Expected response format 
+  body: {}, //Expected request body format,
+  query: {}, //Expected request query format,
+  params: {}, //Expected request params format
+  response: {} //Expected response format 
 })
 export class ExampleController extends Controller {
   // controller logic here...
@@ -181,28 +173,29 @@ export abstract class Controller {
 ```
 
 ### Types and Interfaces:
-- IRouterOptions:
-```
-{
-  middleware?: Array<RequestHandler>
-  controllerBuilder?(controller: IControllerType): RequestHandler
-}
-```
-- IControllerDocumentation:
-```
-{
+``` typescript
+export type IControllerType = new (req: Request, res: Response, next: NextFunction) => Controller;
+
+export interface IControllerDocumentation {
   summary?: string
   description?: string
   body?: {[key: string]: any}
   query?: {[key: string]: any}
   response?: {[key: string]: any}
 }
-```
-- IMountedRoute:
-```
-{
+
+export interface IRouterItem {
   path: string,
   verb: string,
   controller: IControllerType | undefined
 }
-```
+
+export interface IRouter {
+  routes: Array<IRouterItem>
+}
+
+export interface IMountedRoute {
+  path: string,
+  verb: string,
+  controller: IControllerType | undefined
+}
