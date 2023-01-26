@@ -1,7 +1,7 @@
 {
   "name": "@hypercolor/swagger-generator",
   "version": "0.0.1",
-  "description": "This is used by the HyperColor Digital team to automatically parse mounted routes into Swagger",
+  "description": "This is used by the Hypercolor Digital team to automatically parse mounted routes into Swagger",
   "main": "index.js",
   "author": "Seth Uschuk",
   "license": "MIT",
@@ -22,5 +22,23 @@
     "pjson": "^1.0.9",
     "swagger-ui-express": "^4.6.0",
     "typedjson": "^1.8.0"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hypercolor/swagger-generator.git"
+  },
+  "keywords": [
+    "swagger",
+    "documentation",
+    "API",
+    "Swagger.js",
+    "generator"
+  ],
+  "bugs": {
+    "url": "https://github.com/hypercolor/swagger-generator/issues"
+  },
+  "homepage": "https://github.com/hypercolor/swagger-generator#readme"
 }
