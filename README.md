@@ -21,9 +21,9 @@ This is a simple add-on for swagger-UI-Express that allows for programmatic gene
 
 ## Installation
   - NPM 
-    - `npm install hc-swagg-util`
+    - `npm i @hypercolor/swagger-generator`
   - Yarn 
-    - `yarn add hc-swagg-util`
+    - `yarn add @hypercolor/swagger-generator`
 
 
 ## Prerequisites
