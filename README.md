@@ -7,7 +7,7 @@
     - [Required Architecture](#compatible-api-routing-architecture-overview)
   - [Examples](#examples)
     - [Example Files](#example-files-)
-      - [Example Root File](src/swagger.js)
+      - [Example Root File](swagger.js)
     - [Types and Interfaces](#types-and-interfaces-)
   - [License](LICENSE)
   - [More Information](#more-information)

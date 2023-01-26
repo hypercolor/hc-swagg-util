@@ -5,7 +5,7 @@ tsconfig.*.json
 tslint.json
 **/webpack.config.js
 **/tsconfig.tsbuildinfo
-src/swagger.js
+swagger.js
 
 __tests__
 coverage
