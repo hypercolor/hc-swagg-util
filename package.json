@@ -1,6 +1,6 @@
 {
   "name": "@hypercolor/swagger-generator",
-  "version": "0.0.51",
+  "version": "0.0.52",
   "description": "This is used by the Hypercolor Digital team to automatically parse mounted routes into Swagger",
   "author": "Seth Uschuk",
   "license": "MIT",
@@ -28,9 +28,6 @@
     "pjson": "^1.0.9",
     "swagger-ui-express": "^4.6.0",
     "typedjson": "^1.8.0"
-  },
-  "directories": {
-    "lib": "lib"
   },
   "repository": {
     "type": "git",
