@@ -43,9 +43,11 @@
         "emitDecoratorMetadata": true
         /* Enables experimental support for emitting type metadata for decorators. */
     },
-//    "include": [
-//        "src/**/*",
-//    ],
+    "include": [
+        "src/**/*",
+        "index.ts",
+        "swagger.js"
+    ],
     "exclude": [
         "node_modules"
     ]

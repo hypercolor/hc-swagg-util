@@ -3,10 +3,10 @@ import * as PJSON from 'pjson';
 import * as swaggerUi from 'swagger-ui-express';
 import {ArrayTypeDescriptor, JsonObjectMetadata} from 'typedjson';
 import {IControllerDocumentation, IMountedRoute, IRouter} from './interfaces';
+import clone from 'clone'
+import basicAuth from 'express-basic-auth'
 
-const swaggerTemplate = require('../../../../swagger');
-const clone = require('clone');
-const basicAuth = require('express-basic-auth');
+const swaggerTemplate = require('../swagger.js');
 
 swaggerTemplate.info.version = PJSON.version;
 

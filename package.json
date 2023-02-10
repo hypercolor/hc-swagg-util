@@ -1,14 +1,18 @@
 {
   "name": "@hypercolor/swagger-generator",
-  "version": "0.0.52",
+  "version": "0.0.56",
   "description": "This is used by the Hypercolor Digital team to automatically parse mounted routes into Swagger",
   "author": "Seth Uschuk",
   "license": "MIT",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
+    "node_modules/**/*",
+    "/**/*.d.ts",
+    "/**/*.js",
+    "index.js",
     "index.d.ts",
-    "index.js"
+    "swagger.js"
   ],
   "private": false,
   "prepublish": "tsc --build --clean && tsc --build",
@@ -24,7 +28,10 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
+    "@types/clone": "^2.1.1",
+    "clone": "^2.1.2",
     "express": "^4.18.2",
+    "express-basic-auth": "^1.2.1",
     "pjson": "^1.0.9",
     "swagger-ui-express": "^4.6.0",
     "typedjson": "^1.8.0"
