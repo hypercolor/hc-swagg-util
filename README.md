@@ -183,7 +183,7 @@ export abstract class Controller {
 
 ### Types and Interfaces:
 ```typescript
-export type IControllerType = new (req: Request, res: Response, next: NextFunction) => Controller;
+export type IControllerType = new (req: Request, res: Response, next: NextFunction) => any;
 ```
 ```typescript
 export interface IControllerDocumentation {
@@ -195,22 +195,10 @@ export interface IControllerDocumentation {
 }
 ```
 ```typescript
-export interface IRouterItem {
-  path: string,
-  verb: string,
-  controller: IControllerType | undefined
-}
-```
-```typescript
-export interface IRouter {
-  routes: Array<IRouterItem>
-}
-```
-```typescript
 export interface IMountedRoute {
   path: string,
   verb: string,
-  controller: IControllerType | undefined
+  controller: any
 }
 
 ```
