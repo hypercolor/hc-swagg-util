@@ -2,7 +2,7 @@ import {Application} from 'express';
 import * as PJSON from 'pjson';
 import * as swaggerUi from 'swagger-ui-express';
 import {ArrayTypeDescriptor, JsonObjectMetadata} from 'typedjson';
-import {IControllerDocumentation, IMountedRoute, IRouter} from './interfaces';
+import {IControllerDocumentation, IMountedRoute} from './interfaces';
 import clone from 'clone'
 import basicAuth from 'express-basic-auth'
 
@@ -26,7 +26,7 @@ export class SwaggerGenerator {
       public description: string = 'This was automatically generated using the swagger-generator-util. Please see the README on how to setup your own title and description',
     ) {}
 
-    public build(app: Application, mountPoint: string, routers: Array<IRouter>) {
+    public build(app: Application, mountPoint: string, routeGroups: Array<Array<IMountedRoute>>) {
         const swaggerSpec = clone(swaggerTemplate);
         swaggerSpec.info.title += ' ' + mountPoint;
 
@@ -34,14 +34,7 @@ export class SwaggerGenerator {
             url: mountPoint.replace('/swagger','')
         });
         const tags: any = {};
-        const routes: Array<IMountedRoute> = [];
-
-        routers.forEach(router => {
-            const routerRoutes = router.routes;
-            routerRoutes.forEach(mountedRoute => {
-                routes.push(mountedRoute);
-            });
-        });
+        const routes: Array<IMountedRoute> = routeGroups.flat();
 
         const sorted = routes.sort((a,b) => a.path.localeCompare(b.path));
         sorted.forEach(route => {
